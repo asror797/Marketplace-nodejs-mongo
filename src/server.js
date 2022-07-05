@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongo = require('./utils/mongoose')
+const router = require('./modules')
 
 
 mongo()
@@ -11,8 +12,10 @@ mongo()
 
 app.use(express.json())
 
+app.use(router)
 
-app.get('/',(res , req) => {
+
+app.get('/',(req , res) => {
    res.json({
       message:"ok"
    })
